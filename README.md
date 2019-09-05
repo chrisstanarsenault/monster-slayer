@@ -1,5 +1,7 @@
 # monster-slayer
 
+A simple monster slaying game built in vue, to learn more about working with Vue.
+
 ## Project setup
 ```
 npm install

@@ -38,9 +38,14 @@
     <section class="row log" v-if="newGameStart">
       <div class="small-12 columns">
         <ul>
-          <li v-for="log in logs" :class="{'player-turn': log.isPlayer, 'monster-turn':!log.isPlayer}">
-            {{ log.text }}
-          </li>
+          <transition-group name="fade" mode="out-in">
+            <li
+              v-for="log in logs"
+              :class="{'player-turn': log.isPlayer, 'monster-turn':!log.isPlayer}"
+              :key="log">
+              {{ log.text }}
+            </li>
+          </transition-group>
         </ul>
       </div>
     </section>
@@ -254,5 +259,13 @@ button {
 
 #give-up:hover {
     background-color: #c7c7c7;
+}
+
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-enter-active {
+  transition: opacity 0.5s;
 }
 </style>
